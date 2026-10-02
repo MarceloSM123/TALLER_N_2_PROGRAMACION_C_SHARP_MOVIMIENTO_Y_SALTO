@@ -17,5 +17,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         float move=Input.GetAxis("Horizontal");
         rd.velocity=new Vector2(move * speed, rd.velocity.y);
+        if(Input.GetButtonDown("Jump") && isGrounded){
+rd.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
+isGrounded=false;
     }
+}
+void OnCollisionEnter2D(Collision2D collision){
+if(collision.gameObject.CompareTag("ground")){
+    isGrounded=true;
+}
+}
 }
