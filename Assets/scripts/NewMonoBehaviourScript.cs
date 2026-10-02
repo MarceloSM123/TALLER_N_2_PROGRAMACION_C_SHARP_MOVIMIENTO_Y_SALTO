@@ -9,12 +9,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rd=GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float move=Input.GetAxis("Horizontal");
+        rd.velocity=new Vector2(move * speed, rd.velocity.y);
     }
 }
