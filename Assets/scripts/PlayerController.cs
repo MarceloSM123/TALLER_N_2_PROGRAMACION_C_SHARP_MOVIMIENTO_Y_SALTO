@@ -17,7 +17,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         float move=Input.GetAxis("Horizontal");
         rd.velocity=new Vector2(move * speed, rd.velocity.y);
-        if(Input.GetButtonDown("Jump") && isGrounded){
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
 rd.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
 isGrounded=false;
     }
